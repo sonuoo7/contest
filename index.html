@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication-login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="nav">
+        <p>Header</p>
+        <div class="nav-bar">
+            <ul>
+                <a href="index.html">
+                    <li>SignUp</li>
+                </a>
+                <a href="profile.html">
+                    <li>Profile</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <h1>SignUp</h1>
+        <form class="login-form" name="my-form" id="form" onsubmit="return validateform()">
+            <input type="text" name="uname" id="username" placeholder="Full Name" >
+            <input type="email" name="email" id="useremail" placeholder="Email" >
+            <input type="password" name="pass" id="userpass" placeholder="Password" >
+            <input type="password" name="cpass" id="usercpass" placeholder="Confirm Password">
+            <span id="form-error">aisfal</span>
+            <p id="success">Sign up succefullly</p>
+            <button id="btn" type="submit">Signup</button>
+        </form>
+    </div>
+
+    <script>
+       
+            const form = document.getElementById('form')
+            const username = document.getElementById('username')
+            const useremail = document.getElementById('useremail')
+            const userpass = document.getElementById('userpass')
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const usernameValue = username.value
+                const useremailValue = useremail.value
+                const userpassValue = userpass.value
+
+                localStorage.setItem('user-name', usernameValue)
+                localStorage.setItem('user-email', useremailValue)
+                localStorage.setItem('user-pass', userpassValue)
+
+
+                window.location.href = 'profile.html'
+            })
+
+        
+    </script>
+</body>
+
+</html>
